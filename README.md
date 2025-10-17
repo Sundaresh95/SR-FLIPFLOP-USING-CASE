@@ -47,16 +47,27 @@ Testbench: Test with combinations of S, R, and c1k to ensure proper Set-Reset fu
 **PROGRAM**
 
 module exp6(S,R,c1k,Q,Qbar);
+
 input S,R,c1k;
+
 output reg Q;
+
 output reg Qbar;
+
 initial Q=0;
+
 initial Qbar=1;
+
 always @(posedge c1k)
+
 begin
+
 Q=S|((~R)&Q);
+
 Qbar=R|((~S)&(Qbar));
+
 end
+
 endmodule
 
 
